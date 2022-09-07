@@ -3,12 +3,11 @@
  * @return {number}
  */
 var maximumDifference = function(nums) {
-    let ans = -1;
-    for (let i=0; i<nums.length; i++) {
-        for (let j=i+1; j<nums.length; j++) {
-            if (nums[j] > nums[i]) {
-                ans = Math.max(nums[j]-nums[i], ans);
-        }}
+    var min=Infinity
+    var diff=-1
+    for (i=0; i<nums.length; i++) {
+        min=Math.min(min, nums[i])
+        diff=Math.max(diff, nums[i]-min)
     }
-    return ans;
+    return diff==0 ? -1 : diff
 };
