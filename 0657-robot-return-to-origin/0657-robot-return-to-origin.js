@@ -3,20 +3,22 @@
  * @return {boolean}
  */
 var judgeCircle = function(moves) {
-    let arr = [...moves];
-    let ans = [0, 0];
-    for (i of arr) {
-        if (i == 'R') {
-            ans[1]++;
-        } else if (i == 'L') {
-            ans[1]--;
-        } else if (i == 'U') {
-            ans[0]++;
-        } else {
-            ans[0]--;
+    let x = 0, y = 0;
+    for (let i=0; i<moves.length; i++) {
+        switch (moves[i]) {
+            case 'R':
+                x++;
+                break;
+            case 'L':
+                x--;
+                break;
+            case 'U':
+                y++;
+                break;
+            case 'D':
+                y--;
+                break;
         }
     }
-    if (ans[0] == 0 && ans[1] == 0) {
-        return true;
-    } return false;
+    return x === 0 && y === 0
 };
